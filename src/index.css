@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply bg-bg text-primary font-sans;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  a { @apply text-inherit no-underline; }
+}
+
+@layer components {
+
+  .noise::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+
+  .pixel-name {
+    font-family: 'Press Start 2P', monospace;
+    color: #ffffff;
+    text-shadow:
+      3px 3px 0 #2a2a2e,
+      6px 6px 0 #1a1a1c,
+      10px 10px 20px rgba(0,0,0,0.8);
+    animation: pixelFlicker 6s ease-in-out infinite;
+    image-rendering: pixelated;
+  }
+
+  .pixel-name::before {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 3px,
+      rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 4px
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    pointer-events: none;
+  }
+
+  .pixel-name::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    color: #5cffa0;
+    clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+    opacity: 0;
+    animation: pixelGlitch 7s 2s infinite;
+    pointer-events: none;
+    font-family: 'Press Start 2P', monospace;
+  }
+
+
+  .pixel-block {
+    position: absolute;
+    border-radius: 2px;
+    image-rendering: pixelated;
+    animation: floatBlock linear infinite;
+    opacity: 0;
+  }
+
+  .pixel-block:nth-child(1)  { width:8px;  height:8px;  background:#5cffa0; top:10%;  left:2%;   animation-duration:4.2s; animation-delay:0s;   }
+  .pixel-block:nth-child(2)  { width:6px;  height:6px;  background:#a78bfa; top:60%;  left:96%;  animation-duration:5.1s; animation-delay:0.7s; }
+  .pixel-block:nth-child(3)  { width:10px; height:10px; background:#fbbf24; top:80%;  left:8%;   animation-duration:3.8s; animation-delay:1.2s; }
+  .pixel-block:nth-child(4)  { width:5px;  height:5px;  background:#f0f0ee; top:20%;  left:92%;  animation-duration:6s;   animation-delay:0.3s; }
+  .pixel-block:nth-child(5)  { width:8px;  height:8px;  background:#38bdf8; top:50%;  left:0%;   animation-duration:4.7s; animation-delay:2s;   }
+  .pixel-block:nth-child(6)  { width:6px;  height:6px;  background:#f87171; top:5%;   left:50%;  animation-duration:5.5s; animation-delay:0.9s; }
+  .pixel-block:nth-child(7)  { width:7px;  height:7px;  background:#a3e635; top:90%;  left:70%;  animation-duration:4s;   animation-delay:1.8s; }
+  .pixel-block:nth-child(8)  { width:5px;  height:5px;  background:#fbbf24; top:40%;  left:105%; animation-duration:6.3s; animation-delay:0.4s; }
+  .pixel-block:nth-child(9)  { width:9px;  height:9px;  background:#5cffa0; top:75%;  left:45%;  animation-duration:3.5s; animation-delay:2.5s; }
+  .pixel-block:nth-child(10) { width:6px;  height:6px;  background:#a78bfa; top:15%;  left:78%;  animation-duration:5.8s; animation-delay:1.5s; }
+
+
+  .nav-link-item {
+    position: relative;
+  }
+  .nav-link-item::after {
+    content: '';
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 14px;
+    height: 1.5px;
+    border-radius: 2px;
+    background: #f0f0ee;
+    transition: transform 0.25s ease, opacity 0.25s;
+    opacity: 0;
+  }
+  .nav-link-item:hover::after {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+  }
+
+
+  .scroll-line::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: #55555e;
+    animation: scrollLine 1.8s ease-in-out infinite;
+  }
+
+
+  .eyebrow-line::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: #55555e;
+  }
+}
+
+
+@keyframes pixelFlicker {
+  0%, 94%, 100% { opacity: 1; }
+  95%           { opacity: 0.85; }
+  96%           { opacity: 1; }
+  97%           { opacity: 0.9; }
+  98%           { opacity: 1; }
+}
+
+@keyframes pixelGlitch {
+  0%, 89%, 100% { opacity: 0; transform: translate(0); }
+  90%  { opacity: 0.7; transform: translate(-4px, 0);  color: #5cffa0; }
+  91%  { opacity: 0;   transform: translate(4px, 0);   }
+  92%  { opacity: 0.5; transform: translate(-2px, 1px); color: #ff5c8a; }
+  93%  { opacity: 0; }
+}
+
+@keyframes floatBlock {
+  0%   { transform: translateY(12px) rotate(0deg);   opacity: 0; }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.5; }
+  100% { transform: translateY(-40px) rotate(90deg); opacity: 0; }
+}
+
+@keyframes scrollLine {
+  0%, 100% { opacity: 0.3; width: 40px; }
+  50%      { opacity: 1;   width: 60px; }
+}
