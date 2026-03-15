@@ -72,15 +72,9 @@ function App() {
 
 
           <div className="relative inline-block mb-10">
-            <div className="absolute inset-[-30px_-40px] pointer-events-none overflow-visible">
-              {Array.from({ length: 10 }).map((_, i) => (
-                <div key={i} className="pixel-block" />
-              ))}
-            </div>
             <h1
-              className="pixel-name relative inline-block text-primary leading-loose"
+              className="font-bold relative inline-block text-primary leading-loose"
               style={{ fontSize: 'clamp(1.1rem, 3.2vw, 2rem)' }}
-              data-text="Prakash Shukla"
             >
               Prakash Shukla
             </h1>
