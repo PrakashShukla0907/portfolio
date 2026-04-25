@@ -331,9 +331,12 @@ function App() {
               </a>
             ))}
           </div>
-
-
-
+          {/* ── Holopin Badge ── */}
+          <div className="flex justify-center mb-10 sm:mb-16">
+            <a href="https://holopin.io/@prakashshukla0907" target="_blank" rel="noreferrer" className="transition-transform hover:-translate-y-1 duration-300">
+              <img src="https://holopin.me/prakashshukla0907" alt="@prakashshukla0907's Holopin badges" />
+            </a>
+          </div>
           <div className="flex justify-center items-center text-[0.72rem] text-muted pt-6 border-t border-white/[0.07]">
             <span>Prakash Shukla · 2026</span>
           </div>
