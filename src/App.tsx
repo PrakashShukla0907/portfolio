@@ -282,7 +282,7 @@ function App() {
               { label: 'Frontend',     skills: ['React.js', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap'] },
               { label: 'Backend',      skills: ['Node.js', 'Express.js', 'REST APIs', 'JWT'] },
               { label: 'Core CS',      skills: ['OOP', 'DSA', 'Computer Networks', 'Operating System'] },
-              { label: 'DevOps',       skills: ['Docker', 'Kubernetes', 'Git', 'GitHub Actions'] },
+              { label: 'DevOps',       skills: ['Linux', 'Docker', 'Kubernetes', 'Git', 'GitHub Actions'] },
               { label: 'Interests',    skills: ['Game Development', 'Open Source', 'System Design', 'Networking'] },
             ].map(({ label, skills }) => (
               <div key={label}
@@ -332,82 +332,7 @@ function App() {
             ))}
           </div>
 
-          {/* ── Hacktoberfest Super Contributor Badge ── */}
-          <div className="flex justify-center mb-10 sm:mb-14">
-            <a
-              href="https://hacktoberfest.com"
-              target="_blank"
-              rel="noreferrer"
-              className="group relative inline-flex flex-col items-center gap-2 px-6 sm:px-8 py-5 rounded-2xl border border-white/[0.08] hover:border-[#FF6B35]/40 transition-all duration-300 hover:-translate-y-1"
-              style={{
-                background: 'linear-gradient(135deg, rgba(255,107,53,0.06) 0%, rgba(255,107,53,0.02) 100%)',
-                backdropFilter: 'blur(12px)',
-                boxShadow: '0 2px 20px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06)',
-              }}
-            >
-              {/* Glow */}
-              <div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{ background: 'radial-gradient(ellipse at center, rgba(255,107,53,0.12), transparent 70%)' }}
-              />
 
-              {/* Badge graphic */}
-              <div className="relative flex items-center gap-3">
-                {/* Hacktoberfest logo mark */}
-                <div
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-xl sm:text-2xl shrink-0"
-                  style={{
-                    background: 'linear-gradient(135deg, #FF6B35, #FF8C61)',
-                    boxShadow: '0 0 18px rgba(255,107,53,0.45)',
-                  }}
-                >
-                  🦑
-                </div>
-
-                <div className="text-left">
-                  <div
-                    className="text-[0.65rem] sm:text-[0.7rem] tracking-[0.14em] uppercase font-bold mb-[0.1rem]"
-                    style={{ color: '#FF6B35' }}
-                  >
-                    Hacktoberfest 2025
-                  </div>
-                  <div className="text-[0.82rem] sm:text-[0.88rem] font-semibold text-primary leading-tight">
-                    Super Contributor
-                  </div>
-                  <div className="text-[0.7rem] sm:text-[0.72rem] text-muted mt-[0.15rem]">6+ merged pull requests</div>
-                </div>
-
-                {/* Star badge */}
-                <div
-                  className="ml-2 flex flex-col items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full border shrink-0"
-                  style={{
-                    borderColor: 'rgba(255,107,53,0.3)',
-                    background: 'rgba(255,107,53,0.08)',
-                  }}
-                >
-                  <span className="text-base sm:text-lg">⭐</span>
-                  <span className="text-[0.52rem] text-muted leading-none">6+</span>
-                </div>
-              </div>
-
-              {/* Pill tags */}
-              <div className="flex flex-wrap justify-center gap-[0.35rem]">
-                {['Open Source', 'DigitalOcean', '6+ PR Merged', 'Community'].map(tag => (
-                  <span
-                    key={tag}
-                    className="text-[0.62rem] sm:text-[0.65rem] px-2 py-[0.2rem] rounded-full border"
-                    style={{
-                      borderColor: 'rgba(255,107,53,0.25)',
-                      color: '#FF8C61',
-                      background: 'rgba(255,107,53,0.05)',
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </a>
-          </div>
 
           <div className="flex justify-center items-center text-[0.72rem] text-muted pt-6 border-t border-white/[0.07]">
             <span>Prakash Shukla · 2026</span>
